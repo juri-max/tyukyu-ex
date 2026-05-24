@@ -1,0 +1,6 @@
+// _index.scss
+// foundationの全ファイルをここでまとめてforwardする
+
+@forward "variables";
+@forward "reset";
+@forward "base";

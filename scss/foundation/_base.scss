@@ -1,0 +1,16 @@
+@use "../foundation" as *;
+
+// body・html など基本スタイル
+// リセットで「消した」あとにこのサイト用の基本を「設定する」
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-main;
+    color: $color-text;
+    background-color: $color-bg;
+    line-height: 1.6;
+    font-size: 16px;
+}

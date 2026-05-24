@@ -1,0 +1,18 @@
+// foundation（_index.scss が全部まとめてくれる）
+@use "foundation";
+
+// layout
+@use "layout/sidebar";
+@use "layout/footer";
+
+// component
+@use "component/section";
+@use "component/button";
+@use "component/contact-cta";
+
+// page
+@use "page/top";
+@use "page/about";
+@use "page/service";
+@use "page/contact";
+@use "page/thanks";
