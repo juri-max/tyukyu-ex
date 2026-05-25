@@ -1,0 +1,95 @@
+@use "../foundation" as *;
+
+.sidebar {
+    width: $sidebar-width;
+    height: 100vh;
+    position: fixed; // 画面左に固定
+    top: 0;
+    left: 0;
+    background: $color-bg;
+    z-index: 1;
+    padding: 74px 40px 0 40px;
+    border-right: 1px solid $color-border;
+    overflow-y: auto;
+
+    // ロゴ
+    &__logo {
+        margin-bottom: 57px;
+
+        img {
+            width: 200px;
+            height: auto;
+        }
+    }
+
+    // 親メニューリンク
+    &__nav-link {
+        &--parent {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            color: $color-text;
+            padding: 6px 0 32px;
+            margin-bottom: 6px;       
+            
+
+            // 右側の青い横線
+            &::after {
+                content:  "";
+                display: block;
+                width: 24px;       // 線の長さ
+                height: 1px;       // 線の太さ
+                background: $color-primary; // 青色
+            }            
+        }
+
+        // お問い合わせリンク（メールアイコンあり）
+        &--contact {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 20px;
+            font-weight: 700;
+            color: $color-text;
+            padding: 25px 0 25px 0;
+            border-bottom: 1px solid $color-border;
+        }
+    }
+
+    
+    // 子メニュー（サブメニュー）
+    &__nav-child {
+        padding-top: 32px;
+        padding-bottom: 32px;
+        padding-left: 8px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid $color-border;   
+        border-top: 1px solid $color-border;   
+
+        li a {
+            display: block;
+            font-size: 14px;
+            color: $color-text;
+            padding: 3px 0;
+            transition: color 0.2s;
+            font-weight: 700;
+            padding-bottom: 24px;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+
+        // ★ここを追加：最後のliのaだけ下余白を消す
+        li:last-child a {
+            padding-bottom: 0;
+        }        
+    }
+
+      // SP対応（768px以下で非表示）
+        @include sp {
+            display: none;
+        }
+}

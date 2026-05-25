@@ -1,1 +1,43 @@
-b
+@use "../foundation" as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    // 枠線ボタン
+    &--outline {
+        border: 1.5px solid $color-primary;
+        color: $color-primary;
+        background: transparent;
+
+        &:hover {
+            background: $color-primary;
+            color: #fff;
+        }
+    }
+
+    // 塗りつぶしボタン
+    &--primary {
+        background: $color-primary;
+        color: #fff;
+        border: 1.5px solid $color-primary;
+
+        &:hover {
+            background: $color-primary-dark;
+        }
+    }
+
+    &__arrow {
+        font-size: 10px;
+    }
+
+    &__dot {
+        font-size: 8px;
+    }
+}
