@@ -2,24 +2,45 @@
 
 .btn {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
-    padding: 10px 24px;
-    font-size: 13px;
+    padding: 22px 35px;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
 
     // 枠線ボタン
     &--outline {
-        border: 1.5px solid $color-primary;
-        color: $color-primary;
+        border: 1.5px solid $color-text;
+        color: $color-text;
         background: transparent;
+        position: relative;
+
+    // 黒丸を右端に配置
+        &::after {
+            content: "●";
+            font-size: 10px;
+            position: absolute; // 親を基準に配置
+            right: 16px;        // 右端から16px
+            top: 50%;
+            transform: translateY(-50%); // 縦中央に
+        }        
 
         &:hover {
-            background: $color-primary;
+            background: $color-text;
             color: #fff;
+
+            &::after {
+               color: #fff; // ホバー時は白丸に
+            }
+
         }
+
     }
 
     // 塗りつぶしボタン
@@ -39,5 +60,8 @@
 
     &__dot {
         font-size: 8px;
+        align-items: center;
     }
 }
+
+

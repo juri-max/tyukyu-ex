@@ -33,7 +33,7 @@
     // イラスト画像
     // 青い四角の上に重なるように配置
     &__illust {
-        max-width: 1140px;
+        max-width: 1120px;
         width: 100%;         // 画像の幅
         height: auto;
         object-fit: cover;
@@ -53,7 +53,7 @@
     }
 
     &__catch {
-        font-size: clamp(1.5rem, 0.923rem + 2.46vw, 4rem);
+        font-size: 50px;
         font-weight: 700;
         color: $color-text;
         margin-bottom: 16px;
@@ -152,7 +152,7 @@
 
         p {
             writing-mode: vertical-rl; // 縦書き
-            font-size: clamp(1.25rem, 0.962rem + 1.23vw, 2.5rem);
+            font-size: 36px;
             font-weight: 700;
             letter-spacing: 0.7em;
             line-height: 1.5;
@@ -166,7 +166,7 @@
     &__img {
         position: absolute;
         left: 45%;
-        margin-top: 3%;
+        margin-top: 5%;
     }
 }
 
@@ -179,5 +179,151 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+}
+
+.about {
+    margin-top: 50px;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: 31%;
+        font-weight: 400;
+    }
+
+    &__text-area {
+        flex: 1;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 24px;
+    }
+}
+
+// SERVICEセクション
+.service {
+    position: relative;
+    &__bg {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 80px;      // SERVICEタイトルあたりから開始
+        left: 115px;     // 左側に余白
+        right: 0;       // 右端まで伸ばす
+        bottom: 0;    
+        background: #F8F8F8;
+        padding: 60px 0;
+        margin-left: 80px;
+        border-top-left-radius: 50px;    // 左上
+        border-bottom-left-radius: 50px; // 左下        
+    }
+
+    &__header,
+    &__item {
+        position: relative;
+        z-index: 1;
+    }
+    // セクションヘッダー（タイトル＋イラスト横並び）
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    &__header-illust {
+        position: absolute;
+        top: 40%;
+        right: 10%;
+        width: 124px;
+
+        img {
+            width: 100%;
+        } 
+    }
+  // 各サービスアイテム（画像＋テキストの横並び）
+    &__item {
+        display: flex;          // 横並びに
+        align-items: center;    // 上下中央揃え
+        margin-bottom: 100px;    // アイテム間の余白
+
+        // --reverse：画像とテキストを左右反転
+        // 02番目のアイテムに使う
+        &--reverse {
+            flex-direction: row-reverse;
+
+            // reverseのときだけ番号の位置を変える
+            .service__number {
+                right: auto;  // rightをリセット
+                left: 50%;    // 左側に配置
+            }        
+        }
+
+        @include sp {
+            flex-direction: column; // SPは縦並びに
+        }
+    }
+
+    // 画像エリア
+    &__img {
+        width: 50%;           // 画像は55%の幅
+        flex-shrink: 0;       // 幅が縮まないようにする
+        z-index: 1;
+        padding-top: 30px;
+
+        img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;  // 比率を保ちつつ枠に合わせる
+        }
+
+        @include sp {
+            width: 100%;
+        }
+    }
+
+    // テキストエリア
+    &__content {
+        width: 50%;           // テキストは45%の幅
+        padding: 50px 48px 0 48px;
+        position: relative;   // service__number の基準点
+        margin-top: 130px;
+        @include sp {
+            width: 100%;
+            padding: 24px 20px;
+        }
+    }
+
+    // 大きな番号（01,03）
+    // position: absolute で右上に薄く配置
+        &__number {
+        position: absolute;
+        top: -45%;
+        right: 55%;
+        font-size: 168px;
+        font-weight: 700;
+        // rgba で色を薄くする
+        // $color-primary を薄い青に
+        color: #B1C6DC;
+        line-height: 1;
+        font-family: $font-kanit;
+
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 2;
+        color: $color-text-light;
+        margin-bottom: 24px;
     }
 }
