@@ -327,3 +327,199 @@
         margin-bottom: 24px;
     }
 }
+
+// NEWSセクション
+.news {
+
+    &__list {
+        border-top: 1px solid $color-border;
+    }
+
+    &__item {
+        border-bottom: 1px solid $color-border;
+        position: relative;
+    }
+
+    &__link {
+        display: flex;        // ← 追加！
+        flex-direction: column;
+        align-items: flex-start;  // ← 追加！上下中央揃え    
+        gap: 16px;
+        padding: 32px 8px;
+        transition: background 0.2s;
+        width: 100%;
+
+        &:hover {
+            background: $color-bg-gray;
+        }
+
+        // ›矢印をafterで実装
+        &::after {
+            content: "";
+            display: block;
+            width: 11px;            // 正方形の幅
+            height: 11px;           // 正方形の高さ
+            border-top: 3px solid $color-scroll;   // 上の線
+            border-right: 3px solid $color-scroll; // 右の線
+            transform: rotate(45deg); // 45度回転で > 型に
+            position: absolute;
+            top: 50%;
+            right: 5%;      
+        }
+    }
+
+    &__meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+
+    &__tag {
+        display: inline-block;
+        width: 116px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 1px 16px;
+        border: 1px solid;
+        color: $color-scroll;
+        white-space: nowrap;
+
+
+        &--event {
+            color: $color-primary;
+            border-color: $color-primary;
+            margin-bottom: 24px;
+        }
+
+        &--other {
+            color: $color-primary;
+            border-color: $color-primary;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__date {
+        font-size: 14px;
+        font-weight: 700;
+        color: $color-scroll;
+        white-space: nowrap;
+        margin-bottom: 24px;
+    }
+
+    &__text {
+        font-size: 16px;
+        font-weight: 700;
+        flex: 1; // 残りの幅を使う
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    &__wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+
+    &__content {
+        position: relative;
+        background: #fff;
+        width: 90vw;
+        max-width: 860px;
+        padding: 40px;
+        overflow: visible;
+    }
+
+    // 中身のスクロールはbodyで管理
+    &__body {
+        max-height: 80vh;
+        overflow-y: auto; // ← ここでスクロール
+        padding-inline: 56px; 
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    &__close {
+        position: absolute;
+        top: -10px;
+        right: -10%;
+        width: 60px;
+        height: 60px;
+        background: transparent; // ← 透明に変更
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    &__box {
+        display: flex;
+        flex-direction: column; // 縦並び
+        align-items: center;    // 横方向を中央寄せ
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    &__img {
+        margin-bottom: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    } 
+
+    &__text {
+        font-size: 16px;
+        line-height: 2;
+        padding-bottom: 20px;
+    } 
+
+    &__btn {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+body.is-modal-open {
+    overflow: hidden;
+}
