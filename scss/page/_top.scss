@@ -142,7 +142,7 @@
     // 縦書きテキスト
     &__text {
         position: absolute;
-        right: 20%;
+        right: 15%;
         top: 55%;
         display: flex;
         align-items: center;
@@ -165,7 +165,7 @@
 
     &__img {
         position: absolute;
-        left: 45%;
+        right: 35%;
         margin-top: 5%;
     }
 }
@@ -522,4 +522,97 @@
 
 body.is-modal-open {
     overflow: hidden;
+}
+
+// CONTACTセクション
+.contact {
+    position: relative; // イラストをabsoluteで配置する基準点
+    background: #F8F8F8;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-top: 100px;
+    // コンテンツエリア（電話＋メールボタンを横並び）
+    &__inner {
+       display: flex;        // 横並びに
+       align-items: center;  // 上下中央揃え
+       gap: 40px;            // 電話エリアとメールボタンの間隔
+        padding: 0 24px;
+        padding-bottom: 20px;
+    }
+
+    // 電話番号エリア（Tel表記＋番号を横並び）
+    &__tel {
+       display: flex;        // 横並びに
+       align-items: center;  // 上下中央揃え
+       gap: 24px;            // Tel表記と番号の間隔
+    }
+
+    // 左：Tel / お電話
+    &__tel-label {
+        display: flex;
+        flex-direction: column; // 縦並び（Tel → お電話）
+        align-items: center;    // 横中央揃え
+        gap: 4px;
+    }
+
+    &__tel-en {
+        font-size: 32px;
+        font-family: $font-kanit; // 英字フォント
+    }
+
+    &__tel-ja {
+        font-size: 12px;
+        font-weight: 700;
+        color: $color-label;
+    }
+
+    // 右：番号と営業時間
+    &__tel-info {
+        border-left: 1px solid $color-label; // 縦線をborder-leftで実装
+        border-right: 1px solid $color-label;    
+        padding-left: 32px;                   // 線とテキストの間の余白
+        padding-right: 32px;
+    }
+
+    &__tel-number {
+        display: block;       // blockにしてmarginを効かせる
+        font-size: 32px;
+        font-family: $font-kanit; // 英字フォント
+
+    }
+
+    &__tel-hours {
+        font-size: 12px;
+        color: $color-label;
+        font-weight: 700;
+    }
+
+    // メールフォームボタン
+    // btn btn--outlineのスタイルを上書き
+    &__mail {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;             // アイコンとテキストの間隔
+        background: $color-bg;
+        font-size: 16px;
+        width: 280px;
+
+        img {
+           width: 20px;        // アイコンのサイズ
+        }
+    }
+
+    // 右側のイラスト
+    &__illust {
+        position: absolute;   // contactを基準に配置
+        right: 2%;             // 右端に配置
+        bottom: 20%;            // 下端に合わせる
+        width: 175px;         // イラストの幅（デザインカンプに合わせて調整）
+
+
+
+        img {
+            width: 100%;
+        }
+    }
 }
