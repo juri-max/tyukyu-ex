@@ -33,61 +33,83 @@
     </head>
     <body>
         <aside class="sidebar">
-            <div class="sidebar__logo">
-                <img src="img/top/logo-pc.svg" alt="ロゴ">
-            </div>
-            <nav class="sidebar__nav">
-                <ul class="sidebar__nav-list">
-                    <li class="sidebar__nav-item has-child">
-                        <a class="sidebar__nav-link--parent">私達について</a>
-                        <ul class="sidebar__nav-child">
-                            <li><a>経営理念</a></li>
-                            <li><a>会社概要</a></li>
-                            <li><a>安全への取り組み</a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar__nav-item has-child">
-                        <a class="sidebar__nav-link--parent">事業内容</a>
-                        <ul class="sidebar__nav-child">
-                            <li><a>住宅建築・リフォーム</a></li>
-                            <li><a>法人新築・リフォーム</a></li>
-                            <li><a>公共工事</a></li>
-                        </ul>
-                    </li> 
+            <div class="sidebar__inner">
+                <div class="sidebar__logo">
+                    <img src="img/top/logo-pc.svg" alt="ロゴ">
+                </div>
+                <nav class="sidebar__nav">
+                    <ul class="sidebar__nav-list">
+                        <li class="sidebar__nav-item has-child">
+                            <a class="sidebar__nav-link--parent">
+                                私達について
+                                <span class="sidebar__icon"></span>
+                            </a>
+                        
+                            <ul class="sidebar__nav-child">
+                                <li><a>経営理念</a></li>
+                                <li><a>会社概要</a></li>
+                                <li><a>安全への取り組み</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar__nav-item has-child">
+                            <a class="sidebar__nav-link--parent">
+                                事業内容
+                                <span class="sidebar__icon"></span>
+                            </a>
+                            <ul class="sidebar__nav-child">
+                                <li><a>住宅建築・リフォーム</a></li>
+                                <li><a>法人新築・リフォーム</a></li>
+                                <li><a>公共工事</a></li>
+                            </ul>
+                        </li> 
 
-                    <li class="sidebar__nav-item">
-                        <a class="sidebar__nav-link--contact">お知らせ</a>
-                    </li>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link--contact">お知らせ</a>
+                        </li>
 
-                    <li class="sidebar__nav-item">
-                        <a class="sidebar__nav-link--contact"><img src="img/top/mail.png" alt="メール">お問い合わせ</a>
-                    </li>
-                </ul>
-            </nav>
+                        <li class="sidebar__nav-item">
+                            <a class="sidebar__nav-link--contact"><img src="img/top/mail.png" alt="メール">お問い合わせ</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- SP用ハンバーガーボタン（768px以下で表示） -->
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>        
+            </div><!-- /.sidebar__inner -->
+
         </aside>
         <main class="main">
             <!--fv-->
             <section class="fv">
-                <!-- 右上の青い四角形（CSSで色と位置を指定） -->
-                <div class="fv__bg-square"></div>
-                <div class="fv__box">
-                    <!-- イラスト画像 -->
-                    <img class="fv__illust" src="img/top/top1.png" alt="">
+                <div class="fv__inner">
+                    <!-- 右上の青い四角形（CSSで色と位置を指定） -->
+                    <div class="fv__bg-square"></div>
+                        <div class="fv__box">
+                            <!-- イラスト画像 -->
+                            <img class="fv__illust" src="img/top/top1.png" alt="">
+                            <img class="fv__illust1" src="img/top/tex.png" alt="">
+                            <img class="fv__illust2" src="img/top/dream-house_01 1.png" alt="">
+                            <img class="fv__illust3" src="img/top/home-loan-application_01 1.png" alt="">
+                            <img class="fv__illust4" src="img/top/loan-screening_01 1.png" alt="">
+                            <img class="fv__illust5" src="img/top/estimate_01 1.png" alt="">
 
-                    <!-- キャッチコピー -->
-                    <div class="fv__content">
-                        <h1 class="fv__catch">理想を、カタチに</h1>
-                        <p class="fv__text">
-                            住宅購入は一生に一度あるかないかの、大きな買い物です。<br>
-                            青牡丹工務店は、最高の家造りを行うスペシャリスト集団です。
-                        </p>
-                    </div>
+                            <!-- キャッチコピー -->
+                            <div class="fv__content">
+                                <h1 class="fv__catch">理想を、カタチに</h1>
+                                <p class="fv__text">
+                                    住宅購入は一生に一度あるかないかの、大きな買い物です。<br>
+                                    青牡丹工務店は、最高の家造りを行うスペシャリスト集団です。
+                                </p>
+                            </div>
 
-                    <div class="fv__scroll-down">
-                        <p>scroll down</p>
+                            <div class="fv__scroll-down">
+                                <p>scroll down</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-    
             </section>
 
             <!-- フォトスライダー -->
@@ -178,8 +200,11 @@
                                 <img src="img/top/service1.jpg" alt="住宅建築・リフォーム">
                             </div>
                             <div class="service__content">
-                                <span class="service__number">01</span>
-                                <h3 class="service__title">住宅建築・リフォーム</h3>
+                                <div class="service__textbox">
+                                    <h3 class="service__title">住宅建築・リフォーム</h3>                                
+                                    <span class="service__number">01</span>
+                                </div>
+
                                 <p class="service__text">
                                     注文住宅では、お客様のニーズや希望に合わせて、オーダーメイドの家を提供します。私たちは、建物の設計から完成までのプロセスで、お客様と緊密に連携し、理想の暮らしを実現するための最適な解決策を提案します。
                                 </p>
@@ -195,8 +220,10 @@
                                 <img src="img/top/service2.jpg" alt="法人新築・リフォーム">
                             </div>
                             <div class="service__content">
-                                <span class="service__number">02</span>
-                                <h3 class="service__title">法人新築・リフォーム</h3>
+                                <div class="service__textbox">
+                                    <h3 class="service__title">法人新築・リフォーム</h3>                                    
+                                    <span class="service__number">02</span>
+                                </div>
                                 <p class="service__text">
                                     法人新築では、商業施設やオフィスビル、工場など、さまざまなニーズに応じた建物の新築を手がけています。お客様のビジネスの要件やイメージに合わせて、効率的で機能的な建物を設計・施工します。
                                 </p>
@@ -212,8 +239,10 @@
                                 <img src="img/top/service3.jpg" alt="公共工事">
                             </div>
                             <div class="service__content">
-                                <span class="service__number">03</span>
-                                <h3 class="service__title">公共工事</h3>
+                                <div class="service__textbox">
+                                    <h3 class="service__title">公共工事</h3>                                    
+                                    <span class="service__number">03</span>
+                                </div>
                                 <p class="service__text">
                                     法人新築では、商業施設やオフィスビル、工場など、さまざまなニーズに応じた建物の新築を手がけています。お客様のビジネスの要件やイメージに合わせて、効率的で機能的な建物を設計・施工します。
                                 </p>

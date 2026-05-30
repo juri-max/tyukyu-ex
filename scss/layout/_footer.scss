@@ -8,6 +8,12 @@
     color: $color-text; // 白 → 黒に変更
     padding-bottom: 10px;
 
+   // ↓ tab追加！
+    @include tab {
+        margin-left: 0;
+        width: 100%;
+    }    
+
     // 上部エリア（左右横並びx
     &__inner {
        display: flex;           // 横並びに

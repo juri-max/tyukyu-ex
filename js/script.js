@@ -1,4 +1,28 @@
 // ============================================
+// サイドバー アコーディオンメニュー
+//
+// 【処理の流れ】
+// 1. has-childクラスのli要素をクリック
+// 2. is-openクラスをtoggle（切り替え）する
+// 3. is-openがある時 → 子メニュー表示・－アイコン
+//    is-openがない時 → 子メニュー非表示・＋アイコン
+// ============================================
+
+$('.has-child').on('click', function() {
+  // .on('click', ...) 
+  // → クリックされた時に処理を実行する
+
+  $(this).toggleClass('is-open');
+  // $(this) → クリックされた要素自身（.has-child のli）
+  // .toggleClass('is-open')
+  // → is-openクラスが「ない」なら追加、「ある」なら削除
+  // つまり押すたびに開閉が切り替わる！
+});
+
+
+
+
+// ============================================
 // フォトスライダー（Swiper.js）
 //
 // 【Swiperの基本的な使い方】
@@ -26,10 +50,18 @@ const photoSlider = new Swiper(".photo-slider__swiper", {
   slidesPerView: "auto", // autoにするとCSSで幅を制御できる
 
   // スライド間の余白
-    spaceBetween: 40,
+    spaceBetween: 16,
 
   // 中央寄せ
     centeredSlides: false,
+
+  // ↓ 追加！画面幅によってspaceBetweenを変える
+  breakpoints: {
+    // 520px以下で16pxに
+    520: {
+      spaceBetween: 40,
+    },
+  },    
 });
 
 // jQueryが読み込まれてから実行

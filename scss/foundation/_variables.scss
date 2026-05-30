@@ -16,11 +16,27 @@ $font-main: "Zen Kaku Gothic New", sans-serif;
 $font-kanit: "Kanit", sans-serif;
 
 // ブレークポイント
+$breakpoint-min: 375px;
 $breakpoint-sp: 768px;
+$breakpoint-tab: 1230px; // ← 追加！サイドバーが消えるポイント
 
+
+// mixin
+@mixin min {
+    @media (max-width: $breakpoint-min) {
+    @content;
+    }
+}
 // mixin
 @mixin sp {
     @media (max-width: $breakpoint-sp) {
     @content;
 }
+}
+
+// ↓ 追加！
+@mixin tab {
+    @media (max-width: $breakpoint-tab) {
+        @content; // ここにTab用のCSSが入る
+    }
 }

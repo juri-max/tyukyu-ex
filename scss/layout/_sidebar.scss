@@ -7,9 +7,8 @@
     top: 0;
     left: 0;
     background: $color-bg;
-    z-index: 1;
+    z-index: 100;
     padding: 74px 40px 0 40px;
-    border-right: 1px solid $color-border;
     overflow-y: auto;
 
     // ロゴ
@@ -22,6 +21,35 @@
         }
     }
 
+      // Tab：ナビを横並びに
+  &__nav {
+    @include tab {
+        display: none;
+    }
+
+    @include sp {
+      display: none; // SPではハンバーガーに切り替え
+    }
+  }
+
+  &__nav-list {
+    @include tab {
+      display: flex;         // リストも横並び
+      align-items: center;
+      gap: 24px;             // メニュー間の余白
+    }
+  }
+
+  &__nav-item {
+    @include tab {
+      // Tab時はアコーディオンなし・シンプルに
+      .sidebar__nav-child {
+        display: none !important; // 子メニューは非表示
+      }
+    }
+  }
+
+
     // 親メニューリンク
     &__nav-link {
         &--parent {
@@ -32,17 +60,9 @@
             font-weight: 700;
             color: $color-text;
             padding: 6px 0 32px;
-            margin-bottom: 6px;       
-            
-
-            // 右側の青い横線
-            &::after {
-                content:  "";
-                display: block;
-                width: 24px;       // 線の長さ
-                height: 1px;       // 線の太さ
-                background: $color-primary; // 青色
-            }            
+            margin-bottom: 6px;  
+            cursor: pointer; // クリックできることを示す
+        
         }
 
         // お問い合わせリンク（メールアイコンあり）
@@ -57,10 +77,45 @@
             border-bottom: 1px solid $color-border;
         }
     }
+    // ＋アイコン（spanに::before・::afterで作る） 
+    &__icon {
+        position: relative;   // ::before・::afterの基準点
+        display: block;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;        // flexの中で縮まないようにする
+
+        // 横線（常に表示）
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;         // spanの幅いっぱい
+            height: 2px;
+            background: $color-primary;
+            transform: translateY(-50%);
+        }
+
+        // 縦線（閉じている時だけ表示）
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;        // spanの高さいっぱい
+            background: $color-primary;
+            transform: translateX(-50%);
+            transition: transform 0.3s; // 回転アニメーション
+        } 
+    }
+
 
     
     // 子メニュー（サブメニュー）
     &__nav-child {
+        display: none;
         padding-top: 32px;
         padding-bottom: 32px;
         padding-left: 8px;
@@ -88,8 +143,153 @@
         }        
     }
 
-      // SP対応（768px以下で非表示）
-        @include sp {
-            display: none;
+    .is-open {
+        .sidebar__nav-child {
+            display: block;
         }
+
+        .sidebar__icon {
+            &::after {
+                transform: translateX(-50%) rotate(90deg);
+            }
+        }
+    }
+
+   // Tab（1230px以下）：上部に横並びヘッダーに変化
+    @include tab {
+        position: relative;
+        width: 100%;        // 横幅いっぱいに
+        height: auto;       // 高さを自動に
+        position: fixed;    // 上部に固定
+        top: 0;
+        left: 0;
+        padding: 16px 40px; // 上下の余白を狭く
+        border-right: none;
+        border-bottom: 1px solid $color-border; // 下線に変更
+        overflow-y: visible;
+    }
+
+    @include sp {
+        padding: 16px 20px; // SPは余白を少し狭く
+    }    
+
+    // Tab以下で横並びにするラッパー
+    &__inner {
+        @include tab {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; // ロゴ左・ナビ右
+        }
+    }
+}    
+
+// ハンバーガーボタン
+.hamburger {
+  display: none; // デフォルトは非表示
+  position: absolute;
+  top: 0%;
+  right: 0%;
+
+  @include tab {  // ← spからtabに変更！
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    width: 100px;
+    height: 100px;
+    background: $color-primary;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;  
+
+    span {
+      display: block;
+      width: 45px;
+      height: 2px;
+      background: #fff;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    &.is-open {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+
+// SPナビゲーション（768px以下）
+.sp-nav {
+  display: none;
+
+  @include sp {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(100%); // 最初は画面外に隠す
+    transition: transform 0.3s;
+
+    &.is-open {
+      transform: translateX(0); // スライドイン
+    }
+  }
+
+  &__header {
+    padding: 24px 20px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__logo {
+    width: 120px;
+  }
+
+  &__list {
+    padding: 0 20px;
+    margin-top: 24px;
+    border-top: 1px solid $color-border;
+  }
+
+  &__item {
+    border-bottom: 1px solid $color-border;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: $color-text;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      img {
+        width: 16px;
+      }
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 12px;
+    color: $color-text-light;
+    padding: 40px;
+  }
 }

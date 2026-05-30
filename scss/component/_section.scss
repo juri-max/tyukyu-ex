@@ -6,8 +6,13 @@
     margin-left: $sidebar-width; // PCはサイドバー分右にずらす
     width: calc(100% - #{$sidebar-width});
 
-    @include sp {
+    @include tab {
        margin-left: 0; // SPはサイドバーがないので0に
+        width: 100%;
+        margin-top: 190px;
+    }
+    @include sp {
+        margin-left: 0;
         width: 100%;
     }
 }
@@ -19,7 +24,7 @@
     padding: 0 40px;
 
     @include sp {
-       padding: 0 20px; // SPは余白を狭く
+       padding: 0 15px; // SPは余白を狭く
     }
 }
 
@@ -44,7 +49,7 @@
 // color: transparent → 塗りを透明に
 // -webkit-text-stroke → 輪郭線だけ青に
 .section__title {
-    font-size: 128px;
+    font-size: clamp(72px, 10vw, 128px);
     font-weight: 700;
     color: transparent;
     -webkit-text-stroke: 1px $color-scroll;
@@ -52,7 +57,4 @@
     margin-bottom: 40px;
     font-family: $font-kanit;
 
-    @include sp {
-        font-size: 40px;
-    }
 }

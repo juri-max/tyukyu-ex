@@ -11,29 +11,74 @@
 // ============================================
 
 .fv {
-    position: relative;  // 子要素のabsoluteの基準点になる
-    max-width: 1500px;
-    width: 100%;
-    height: 900px;       // FVの高さ
-    margin: 0 auto;
+    margin-bottom: 500px;
+
+    @media (max-width:1680px) {
+        margin-bottom: 300px;
+    }    
+
+    @media (max-width:1000px) {
+        margin-bottom: 250px;
+    }
+
+    @media (max-width:1300px) {
+        margin-bottom: 200px;
+    }   
+    @media (max-width:800px) {
+        margin-bottom: 90px;
+    }
+
+    &__inner {
+        position: relative;  // 子要素のabsoluteの基準点になる   
+        max-width: 1440px;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+
+        @media (max-width:1300px) {
+            margin: 0;
+            width: 100%;
+            min-width: 55vh;
+        }        
+
+        @media (max-width:1000px) {
+            margin: 0;
+            width: 100%;
+            height: 70vh;
+        }
+
+    }
     // 右上の青い四角形
-    &__bg-square {
-        margin-left: auto;
-        width: 60%;
-        height: 80%;
+    &__bg-square {     
+        position: absolute; // ← absoluteに変更！
+        top: 0;
+        right: 0;        
+        width: 70%;
+        height: 90%;
         background: $color-primary; // 青色
+
+        @media (max-width:1000px) {
+            display: none;
+        }
     }
 
     &__box {
         position: absolute; // 親(.fv)を基準に配置
         top: 40px;
         right: 3%;
+        width: 85%;
+        @media (max-width:1000px) {
+            position: static;
+            width: 100%;      // ← 追加！幅を100%に
+            padding: 0;       // ← 余白をリセット  
+        }
+
     }
 
     // イラスト画像
     // 青い四角の上に重なるように配置
     &__illust {
-        max-width: 1120px;
+        max-width: 1220px;
         width: 100%;         // 画像の幅
         height: auto;
         object-fit: cover;
@@ -41,19 +86,45 @@
         background: #f5f7fa; // 薄いグレーの背景色
         padding: 20px;
         border-radius: 50px;
+
+        @media (max-width:1000px) {
+            border-radius: 0;
+            padding: 0;
+            max-width: 100%;
+            widh: 100%;
+            display: block; // ← 追加！
+        }     
     }
 
+    &__illust1,
+    &__illust2,
+    &__illust3,
+    &__illust4,
+    &__illust5 {
+        display: none;
+
+    }
     // キャッチコピー
     &__content {
         position: absolute; // 親(.fv)を基準に配置
         bottom: 10%;
         right: 10%;
-        z-index: 2;         // 一番前面
+        z-index: 1;         // 一番前面
         text-align: right;
+
+        @media (max-width:1000px) {
+            right: 8%;
+            bottom: -10%;
+        }
+
+        @media (max-width:850px) {
+            right: 8%;
+            bottom: 5%;
+        }
     }
 
     &__catch {
-        font-size: 50px;
+        font-size: clamp(1.5rem, 0.923rem + 2.46vw, 4rem);
         font-weight: 700;
         color: $color-text;
         margin-bottom: 16px;
@@ -62,6 +133,7 @@
         text-align: center;
         padding: 14px;
         border-radius: 10px;
+
     }
 
     &__text {
@@ -77,12 +149,16 @@
         position: absolute; // fvを基準に配置
         bottom: -5%;
         left: 0;         // 左下に配置
-        z-index: 2;
+        z-index: 1;
         display: flex;
         flex-direction: column; // 縦並びに
         align-items: center;
         gap: 8px;
         color: $color-scroll;
+
+        @media (max-width:1000px) {
+            bottom: -20px;
+        }
         p {
             font-size: 11px;
             font-weight: 700;
@@ -98,32 +174,81 @@
             height: 110px;       // 線の長さ
             background: $color-scroll; // 線の色
         }
+
+        @media (max-width:1000px) {
+            height: 80px;
+        }
     }
 
     // SP対応
     @include sp {
-        height: auto;
-        padding-bottom: 40px;
+        background: #F8F8F8;
 
-        &__bg-square {
-            width: 60%;
-            height: 200px;
+        &__inner {
+            height: 100vh;
         }
-
         &__illust {
            position: static; // SPは通常配置に戻す
-            width: 100%;
+            display: none;
+        }
+        &__illust1,
+        &__illust2,
+        &__illust3,
+        &__illust4,
+        &__illust5 {
+            display: block;
+            width: 135px;
         }
 
+        &__illust1 {
+            position: absolute;
+            left: 5%;
+            top: 5%;
+        }
+
+        &__illust2 {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+        }
+
+        &__illust3 {
+            position: absolute;
+            right: 0;
+            top: 5%;
+        }
+
+        &__illust4 {
+            position: absolute;
+            right: 40%;
+            top: 30%;
+        }
+
+        &__illust5 {
+            position: absolute;
+            right: 0;
+            top: 55%;
+        }
+    
         &__content {
-           position: static; // SPは通常配置に戻す
+            position: absolute;
+            left: 2%;
+            bottom: 10%;
+            right: 0;
             text-align: left;
-            padding: 24px 20px 0;
+    
         }
 
         &__catch {
-            font-size: 28px;
+            display: inline-block;
+            padding: 14px 13px;
+            font-size: clamp(0.75rem, 0.034rem + 3.05vw, 1.5rem);
         }
+
+        &__text {
+            font-size: clamp(0.75rem, 0.511rem + 1.02vw, 1rem);
+        }
+
     }
 }
 
@@ -131,18 +256,22 @@
 .photo-slider {
     position: relative;
     padding: 63px 48px;
-    margin-top: 100px;
-    background-color: $color-bg-gray; // グレー背景  
+    margin-top: 90px;
+    background-color: $color-bg-gray; // グレー背景    
+    
+    @media (max-width:1000px) {
+        margin-top: 0;
+    }
+    
 
     &__swiper {
-        max-width: 1160px;
-        width: 100%;  // 1920pxまで伸びる
+        max-width: 100%;  
     }
 
     // 縦書きテキスト
     &__text {
         position: absolute;
-        right: 15%;
+        right: 70px;
         top: 55%;
         display: flex;
         align-items: center;
@@ -150,12 +279,26 @@
         padding: 16px 40px;
         z-index: 1;
 
+        @include sp {
+            padding: 16px 24px;
+        }
+
+        @include min {
+            right: 30px;
+        }
+
+        
+
         p {
             writing-mode: vertical-rl; // 縦書き
-            font-size: 36px;
+            font-size: clamp(1.5rem, 0.848rem + 2.78vw, 2.5rem);
             font-weight: 700;
             letter-spacing: 0.7em;
             line-height: 1.5;
+            @include sp {
+                letter-spacing: 0.5em;
+            }
+
         }
 
         span {
@@ -165,8 +308,21 @@
 
     &__img {
         position: absolute;
-        right: 35%;
+        right: 280px;
         margin-top: 5%;
+        width: 100%;
+        height: auto;
+
+        @include sp {
+            right: 230px;
+            width: 60px;
+            height: auto;
+        }
+
+        @include min {
+            right: 190px;
+        }
+
     }
 }
 
@@ -174,23 +330,37 @@
 .photo-slider .swiper-slide {
     width: 360px;  // スライド1枚の幅
     height: 360px;
+    flex-shrink: 0;    
+
+    @media (max-width:520px) {
+        width: 200px;
+        height: 200px;
+    }
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
+
 }
 
 .about {
     margin-top: 50px;
-
+    @include sp {
+        margin-top: 140px;
+    }
     &__content {
         display: flex;
         align-items: center;
         gap: 40px;
         width: 31%;
         font-weight: 400;
+
+        @include sp {
+            width: 100%;
+        }
     }
 
     &__text-area {
@@ -219,7 +389,11 @@
         padding: 60px 0;
         margin-left: 80px;
         border-top-left-radius: 50px;    // 左上
-        border-bottom-left-radius: 50px; // 左下        
+        border-bottom-left-radius: 50px; // 左下     
+        @include sp {
+            margin-left: 0;
+            left: 70px;
+        }
     }
 
     &__header,
@@ -241,6 +415,16 @@
         right: 10%;
         width: 124px;
 
+        @media (max-width:950px) {
+            top: 0;
+            right: 0;
+        }
+        @include sp {
+            width: 69px;
+            top: -28%;
+
+        }
+
         img {
             width: 100%;
         } 
@@ -259,7 +443,7 @@
             // reverseのときだけ番号の位置を変える
             .service__number {
                 right: auto;  // rightをリセット
-                left: 50%;    // 左側に配置
+                left: 0%;    // 左側に配置
             }        
         }
 
@@ -292,17 +476,32 @@
         padding: 50px 48px 0 48px;
         position: relative;   // service__number の基準点
         margin-top: 130px;
+
+        @media (max-width: 935px) {
+            padding: 0;
+            padding-left: 30px;
+            padding-top: 40px;
+        }
         @include sp {
             width: 100%;
-            padding: 24px 20px;
+            margin-top: 50px;
+            padding-left: 0;
         }
+    }
+
+    &__textbox {
+        @include sp {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }     
     }
 
     // 大きな番号（01,03）
     // position: absolute で右上に薄く配置
         &__number {
         position: absolute;
-        top: -45%;
+        top: -35%;
         right: 55%;
         font-size: 168px;
         font-weight: 700;
@@ -311,13 +510,27 @@
         color: #B1C6DC;
         line-height: 1;
         font-family: $font-kanit;
+        @include sp {
+            position: static;
+            display: flex;
+            font-size: 48px;
+            top: 0;
+            right: 0;
+        }
 
     }
 
     &__title {
+        display: inline-block;
         font-size: 24px;
         font-weight: 700;
         margin-bottom: 16px;
+        background: $color-bg;
+        padding: 10px 16px;
+        margin-right: 13px;
+        @include sp {
+        
+        }        
     }
 
     &__text {
@@ -344,7 +557,7 @@
         display: flex;        // ← 追加！
         flex-direction: column;
         align-items: flex-start;  // ← 追加！上下中央揃え    
-        gap: 16px;
+        gap: 8px;
         padding: 32px 8px;
         transition: background 0.2s;
         width: 100%;
@@ -412,6 +625,13 @@
         font-size: 16px;
         font-weight: 700;
         flex: 1; // 残りの幅を使う
+    }
+
+    @include sp {
+        &__text {
+            font-size: 14px;
+            padding: 0 35px 0 0;
+        }
     }
 }
 
