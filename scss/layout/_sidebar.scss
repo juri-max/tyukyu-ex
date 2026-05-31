@@ -14,10 +14,17 @@
     // ロゴ
     &__logo {
         margin-bottom: 57px;
+        @include tab {
+          margin-bottom: 0;
+        }
 
         img {
             width: 200px;
             height: auto;
+
+            @media (max-width:520px) {
+              width: 100px;
+            }
         }
     }
 
@@ -165,12 +172,11 @@
         left: 0;
         padding: 16px 40px; // 上下の余白を狭く
         border-right: none;
-        border-bottom: 1px solid $color-border; // 下線に変更
         overflow-y: visible;
     }
 
     @include sp {
-        padding: 16px 20px; // SPは余白を少し狭く
+        padding: 0; // SPは余白を少し狭く
     }    
 
     // Tab以下で横並びにするラッパー
@@ -182,15 +188,14 @@
         }
     }
 }    
-
 // ハンバーガーボタン
 .hamburger {
-  display: none; // デフォルトは非表示
+  display: none;
   position: absolute;
-  top: 0%;
-  right: 0%;
+  top: 0;
+  right: 0;
 
-  @include tab {  // ← spからtabに変更！
+  @include tab {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -201,7 +206,13 @@
     background: $color-primary;
     border: none;
     cursor: pointer;
-    z-index: 1001;  
+    z-index: 1001;
+
+    @media (max-width: 520px) {
+      width: 56px;
+      height: 56px;
+      gap: 12px;
+    }
 
     span {
       display: block;
@@ -209,70 +220,107 @@
       height: 2px;
       background: #fff;
       transition: transform 0.3s, opacity 0.3s;
-    }
 
-    &.is-open {
-      span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+      @media (max-width: 520px) {
+        width: 32px;
+        height: 1px;
       }
-      span:nth-child(2) {
-        opacity: 0;
-      }
-      span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
+    }
+  }
+
+  // ← @include tab の外に出す！
+  &.is-open {
+    span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
   }
 }
 
-
-// SPナビゲーション（768px以下）
+// SPナビゲーション
 .sp-nav {
-  display: none;
+  position: fixed;
+  top: 0%;
+  left: 50;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000;
+  overflow-y: auto;
 
-  @include sp {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    z-index: 1000;
-    overflow-y: auto;
-    transform: translateX(100%); // 最初は画面外に隠す
-    transition: transform 0.3s;
+  // transformをやめてopacityで制御
+  opacity: 0;               // ← 最初は透明
+  visibility: hidden;       // ← クリックも無効に
+  transition: opacity 0.3s, visibility 0.3s; // ← ふわっと
 
-    &.is-open {
-      transform: translateX(0); // スライドイン
-    }
+  &.is-open {
+    opacity: 1;             // ← 表示
+    visibility: visible;    // ← クリック有効に
   }
-
   &__header {
-    padding: 24px 20px;
-    border-bottom: 1px solid $color-border;
+    display: flex;              // ← 追加！横並びに
+    justify-content: space-between; // ← 追加！両端に配置
+    margin-bottom: 40px;
   }
 
   &__logo {
     width: 120px;
   }
 
+  // ← 追加！閉じるボタン
+  &__close {
+    width: 56px;
+    height: 56px;
+    background: $color-primary;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    span {
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: #fff;
+    }
+
+    // ✕マーク
+    span:nth-child(1) {
+      transform: translateY(13px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-13px) rotate(-45deg);
+    }
+  }
+
   &__list {
     padding: 0 20px;
     margin-top: 24px;
-    border-top: 1px solid $color-border;
+    margin-bottom: 24px;
   }
 
   &__item {
-    border-bottom: 1px solid $color-border;
+    text-align: center; // ← 追加！中央寄せ
 
     a {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 20px 8px;
-      font-size: 16px;
-      font-weight: 700;
+      justify-content: center; // ← 追加！横中央
+      gap: 4px;
+      padding: 16px 8px;
+      font-size: 16px;          // ← 確認！
+      font-weight: 700;         // ← 確認！
       color: $color-text;
       transition: color 0.2s;
 
@@ -288,8 +336,11 @@
 
   &__copyright {
     text-align: center;
-    font-size: 12px;
-    color: $color-text-light;
-    padding: 40px;
+  }
+
+
+  // PCでは非表示（1230px以上）
+  @media (min-width: 1231px) {
+    display: none; // ← 1231px以上で非表示に変更！
   }
 }

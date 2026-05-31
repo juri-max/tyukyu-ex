@@ -482,11 +482,40 @@
             <p class="footer__copyright wrapper">© AOBOTAN INC.</p>
 
         </footer>
+        <!-- SPナビゲーション -->
+        <nav class="sp-nav" id="sp-nav">
+            <div class="sp-nav__header">
+                <img src="img/top/logo-pc.svg" alt="ロゴ" class="sp-nav__logo">
+                <!-- ← 追加！閉じるボタン -->
+                <button class="sp-nav__close" id="sp-nav-close">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>     
+            </div>
+            <ul class="sp-nav__list">
+                <li class="sp-nav__item"><a href="#">トップページ</a></li>
+                <li class="sp-nav__item"><a href="about.html">私達について</a></li>
+                <li class="sp-nav__item"><a href="about.html#philosophy">経営理念</a></li>
+                <li class="sp-nav__item"><a href="about.html#company">会社概要</a></li>
+                <li class="sp-nav__item"><a href="about.html#safety">安全への取り組み</a></li>
+                <li class="sp-nav__item"><a href="service.html">事業内容</a></li>
+                <li class="sp-nav__item"><a href="service.html#housing">住宅建築・リフォーム</a></li>
+                <li class="sp-nav__item"><a href="service.html#corporate">法人新築・リフォーム</a></li>
+                <li class="sp-nav__item"><a href="service.html#public">公共工事</a></li>
+                <li class="sp-nav__item"><a href="#news">お知らせ</a></li>
+                <li class="sp-nav__item sp__letter">
+                    <a href="contact.html">
+                        <img src="img/top/mail.png" alt="">お問い合わせ
+                    </a>
+                </li>
+            </ul>
+            <p class="sp-nav__copyright">© AOBOTAN INC.</p>
+        </nav>
         <!-- jQueryはSwiperより前に読み込む -->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>    
-        <!-- Swiper JS -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-        <!-- 自作JS -->
         <script src="js/script.js"></script>
+        
     </body>
 </html>
