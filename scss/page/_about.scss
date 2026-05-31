@@ -1,0 +1,87 @@
+@use "../foundation" as *; // ← 変数やmixinを使えるようにするおまじない（先頭に1回）
+
+/* =========================================
+    FV（ヘッダー画像）
+========================================= */
+.about-fv {
+    position: relative;
+
+    &__inner {
+        max-width: 1440px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    &__img {
+        width: 100%;       // 横幅いっぱいに広げる
+        height: auto;     // 画像の高さ（お好みで調整）
+        object-fit: cover; // 比率を保ったまま枠を埋める（はみ出し分は切り取る）
+        display: block;    // 画像の下にできる謎のすき間を消す
+        
+    }
+
+    // 右上の青い飾り
+    &::after {
+        position: absolute;
+        right: 19%;
+        top: -10%;
+        content: "";                    // 擬似要素には必須（中身は空でOK）
+        width: 700px;
+        height: 600px;
+        background-color: $color-primary; // 変数で青色を指定
+        z-index: -1;
+    }
+}
+
+/* =========================================
+    about
+========================================= */
+.about {
+    position: relative;
+    &__inner {
+        width: 70%;
+    }
+    &__label {
+        font-size: clamp(1.5rem, 1.148rem + 1.5vw, 2.5rem);
+    }
+    &__textimg {
+        display: flex;
+    }
+    &__img {
+        position: absolute;
+        top: -10%;
+        left: 40%;
+    }
+
+    &__btn {
+        display: flex;
+        gap: 24px;
+        margin-top: 60px;
+    }
+
+    &__btn-l {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 11px;
+        padding-bottom: 15px;
+        width: 205px;
+        height: 61px;
+        border: 1px solid $color-scroll;
+        border-radius: 10px;
+
+        &::after {
+            content: "";
+            flex-shrink: 0;
+            width: 10px;
+            height: 10px;
+            border-right: 3px solid $color-primary;  // 右辺
+            border-bottom: 3px solid $color-primary; // 下辺
+            transform: rotate(45deg);                 // 45度回して「∨」に
+        }
+    }
+
+}
