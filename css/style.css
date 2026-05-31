@@ -553,7 +553,7 @@ body {
     border-radius: 0;
     padding: 0;
     max-width: 100%;
-    widh: 100%;
+    width: 100%;
     display: block;
   }
 }
@@ -1161,12 +1161,23 @@ body.is-modal-open {
   border-bottom-left-radius: 50px;
   margin-top: 100px;
 }
+@media (max-width: 810px) {
+  .contact {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
 .contact__inner {
   display: flex;
   align-items: center;
   gap: 40px;
   padding: 0 24px;
   padding-bottom: 20px;
+}
+@media (max-width: 810px) {
+  .contact__inner {
+    gap: 20px;
+  }
 }
 .contact__tel {
   display: flex;
@@ -1194,6 +1205,11 @@ body.is-modal-open {
   padding-left: 32px;
   padding-right: 32px;
 }
+@media (max-width: 810px) {
+  .contact__tel-info {
+    padding-inline: 15px;
+  }
+}
 .contact__tel-number {
   display: block;
   font-size: 32px;
@@ -1219,47 +1235,55 @@ body.is-modal-open {
   position: absolute;
   right: 2%;
   bottom: 20%;
-  max-width: 175px;
-  width: 100%;
-  height: auto;
 }
 .contact__illust img {
   width: 100%;
 }
-@media (max-width: 970px) {
+@media (max-width: 960px) {
+  .contact {
+    padding: 25px 15px;
+  }
   .contact__illust {
-    position: absolute;
-    right: 2%;
+    width: 120px;
     bottom: 50%;
   }
-  .contact__illust img {
-    width: 80%;
-  }
 }
-@media (max-width: 810px) {
-  .contact .contact {
-    position: relative;
-    background: #F8F8F8;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-top: 100px;
-  }
-  .contact .contact__inner {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 0 24px;
-    padding-bottom: 20px;
-  }
-  .contact .contact__tel {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .contact .contact__tel-label {
+@media (max-width: 768px) {
+  .contact__inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    align-items: baseline;
+  }
+  .contact__tel-info {
+    border-right: none;
+  }
+}
+@media (max-width: 520px) {
+  .contact__inner {
+    padding-inline: 12px;
+  }
+  .contact__tel {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 12px;
+    width: 100%;
+  }
+  .contact__tel-label {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+  .contact__illust {
+    width: 60px;
+    bottom: 90%;
+  }
+  .contact__tel-info {
+    display: inline-block;
+    border-top: 1px solid #000000;
+    border-left: none;
+    padding: 0;
+    width: 100%;
+    padding-top: 10px;
   }
 }/*# sourceMappingURL=style.css.map */
