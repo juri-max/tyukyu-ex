@@ -738,6 +738,41 @@
         font-size: 16px;
         text-align: center;
     }
+
+    @media (max-width:1030px) {
+        &__content {
+            width: 70vw;
+            max-width: 860px;
+            padding: 15px;
+        }    
+        &__body {
+            padding: 24px 10px;
+        }
+
+    } 
+
+    @media (max-width:780px) {
+
+        &__close {
+            position: absolute;
+            top: -10px;
+            right: -18%;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+        }
+    } 
+    
+    @include sp {
+        &__title {
+            font-size: clamp(0.875rem, 0.279rem + 2.54vw, 1.5rem);
+        }
+
+        &__btn {
+            width: 180px;
+            padding-inline: 20px;
+        }        
+    }
 }
 
 body.is-modal-open {
@@ -751,6 +786,11 @@ body.is-modal-open {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     margin-top: 100px;
+
+    @media (max-width:810px) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
     // コンテンツエリア（電話＋メールボタンを横並び）
     &__inner {
        display: flex;        // 横並びに
@@ -827,12 +867,23 @@ body.is-modal-open {
         position: absolute;   // contactを基準に配置
         right: 2%;             // 右端に配置
         bottom: 20%;            // 下端に合わせる
-        width: 175px;         // イラストの幅（デザインカンプに合わせて調整）
-
-
+        max-width: 175px;         // イラストの幅（デザインカンプに合わせて調整）
+        width: 100%;
+        height: auto;
 
         img {
             width: 100%;
         }
+    }
+
+    @media (max-width:970px) {
+        &__illust {
+            position: absolute;   // contactを基準に配置
+            right: 2%;             // 右端に配置
+            bottom: 50%;              
+            img {
+                width: 80%;
+            }
+        }       
     }
 }
