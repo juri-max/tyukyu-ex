@@ -19,6 +19,11 @@
        display: flex;           // 横並びに
        align-items: flex-start; // 上揃え（左右の高さが違うので上揃えが自然）
        padding: 48px 64px;      // 上下左右の余白
+
+        @media (max-width:1080px) {
+            display: flex;
+            flex-direction: column;
+        }
     }
 
    // 左エリア（ロゴ＋会社情報）
@@ -28,6 +33,15 @@
         flex-direction: column;  // 縦並び（ロゴ → 会社情報）
         gap: 24px;               // ロゴと会社情報の間隔
         padding-right: 90px;
+
+        @include tab {
+            width: 100%;
+        }
+
+        @media (max-width:1120px) {
+            padding-right: 0;
+            align-items: center;
+        }
     }
 
     // ロゴ
@@ -46,6 +60,10 @@
         display: flex;
         flex-direction: column;  // 縦並び
         gap: 8px;                // 各テキストの間隔
+
+        @media (max-width:1040px) {
+            align-items: center;
+        }
     }
 
     &__address,
@@ -55,16 +73,38 @@
         color: $color-label; // rgba白 → グレーに変更
         line-height: 1.5;
         font-weight: 400;
+
+        @include sp {
+            font-size: 12px;
+        }
     }
 
     // 右エリア（ナビゲーション）
     &__nav {
         width: 60%;
         margin-top: 60px;
+        @include tab {
+            width: 100%;
+        }
+
+        @include sp {
+            margin-bottom: 55px;
+        }
     }
 
     &__nav-list {
         display: flex;
+        @media (max-width:1080px) {
+            display: flex;
+            justify-content: center;
+        }
+
+        @include sp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
     }
 
     &__nav-item {
@@ -90,6 +130,12 @@
                 filter: none;
             }
         } // ← aの閉じカッコ
+
+        @media (max-width:1120px) {
+            padding-right: 0;
+            padding-bottom: 0;
+            padding: 10px;
+        }
     } // ← &__nav-itemの閉じカッコ
 
     // コピーライト
@@ -98,6 +144,10 @@
         font-size: 14px;
         color: $color-text-light;
         padding: 16px 64px;
+
+        @include sp {
+            text-align: center;
+        }
     }
 
 } // ← .footerの
