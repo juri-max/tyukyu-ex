@@ -204,30 +204,50 @@
             position: absolute;
             left: 5%;
             top: 5%;
+            @media (max-width:500px) {
+                width: 103px;
+            }
         }
 
         &__illust2 {
             position: absolute;
             left: 5%;
             top: 50%;
+            @media (max-width:500px) {
+                width: 110px;
+            }
         }
 
         &__illust3 {
             position: absolute;
             right: 0;
             top: 5%;
+
+            @media (max-width:500px) {
+                right: 20%;
+                width: 134px;
+            }
         }
 
         &__illust4 {
             position: absolute;
             right: 40%;
             top: 30%;
+
+            @media (max-width:500px) {
+                width: 82px;
+                right: 50%;
+            }
         }
 
         &__illust5 {
             position: absolute;
             right: 0;
             top: 55%;
+
+            @media (max-width:500px) {
+                right: 20%;
+            }
         }
     
         &__content {
