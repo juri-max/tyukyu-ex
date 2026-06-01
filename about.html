@@ -84,10 +84,12 @@
         <main class="main">
             <section class="about-fv">
                 <div class="about-fv__inner">
-                    <img class="about-fv__img" src="img/about/about1.jpg" alt="aboutファーストビュー">
+                    <div class="about-fv__imgs">
+                        <img src="img/about/about1.jpg" alt="aboutファーストビュー">
+                    </div>
                 </div>
             </section>
-            <div class="wrapper">
+            <div class="wrapper wrapper-l">
                 <section class="about" id="about">
                     <div class="about__inner">
                         <div class="about__box">
@@ -117,20 +119,171 @@
 
                 <!-- 経営理念 -->
                 <section id="philosophy" class="philosophy">
-                    
+                    <h3 class="section__label philosophy__label">経営理念</h3>   
+                    <img class="philosophy_img"  src="img/about/vision.png" alt="ビジョン">
                 </section>
 
                 <!-- 会社概要 -->
                 <section id="company" class="company">
-
+                    <h3 class="section__label company__label">会社概要</h3>                     
+                    <div class="company__inner">
+                        <div class="company__imgbox">
+                            <img src="img/about/shatyou.jpg" alt="社長">
+                            <p>代表取締役</p>
+                            <h3 class="company__shatyo">谷垣周平</h3>
+                        </div>
+                        <p class="company__text">
+                            青牡丹工務店は、1965年に創業しました。当初は小さな地域の工務店として始まりましたが、顧客志向の高いサービスと品質へのこだわりが徐々に評判を高め、地域の信頼を得ることとなりました。
+                            創業以来、私たちの経営理念は変わることなく、品質第一と顧客満足を常に追求することを掲げています。私たちは、建物を単なる建築物としてではなく、人々の生活や夢の実現の場として捉え、お客様の要望に応えるために最善の努力を惜しまず取り組んできました。
+                            その結果、地域社会だけでなく、広く多くのお客様からの信頼を得て、業績を着実に拡大させてまいりました。途中で直面した困難や挑戦もありましたが、常に創造性と革新を重視し、チーム全体で協力し合いながら、克服してまいりました。
+                            私たちの理念は、常に社会に貢献し、持続可能な未来を築くことにあります。地域社会や環境への配慮を大切にし、誠実な姿勢で仕事に取り組むことで、より良い社会を築いていくことを目指しています。
+                            今後も、お客様の声に耳を傾けながら、さらなる成長と発展を目指し、青牡丹工務店は邁進してまいります。
+                        </p>
+                    </div>
+                    <!-- company__inner の下、section の中に置く -->
+                    <dl class="company__table">
+                        <div class="company__row">
+                            <dt class="company__term">商号</dt>
+                            <dd class="company__desc">株式会社　青牡丹工務店</dd>
+                        </div>
+                        <div class="company__row">
+                            <dt class="company__term">創業</dt>
+                            <dd class="company__desc">昭和40年5月3日</dd>
+                        </div>
+                        <div class="company__row">
+                            <dt class="company__term">資本金</dt>
+                            <dd class="company__desc">2000万円</dd>
+                        </div>
+                        <div class="company__row">
+                            <dt class="company__term">従業員数</dt>
+                            <dd class="company__desc">24人</dd>
+                        </div>
+                        <div class="company__row">
+                            <dt class="company__term">営業種目</dt>
+                            <dd class="company__desc">総合建設設計施工・不動産業・倉庫業・リフォーム工事</dd>      
+                        </div>
+                        <div class="company__row">
+                            <dt class="company__term">本社所在地</dt>
+                            <dd class="company__desc">〒000-0000　大阪府大阪市中央区北区南町5-6-7</dd>
+                        </div>
+                        <div class="company__row">
+                            <dt class="company__term">代表取締役</dt>
+                            <dd class="company__desc">谷垣周平</dd>
+                        </div>
+                    </dl><!--company__table-->
                 </section>
 
                 <!-- 安全への取り組み -->
                 <section id="safety" class="safety">
-
+                    <h3 class="section__label safety__label">安全への取り組み</h3> 
+                    <div class="safety__box">
+                        <h4 class="safety__title">経営層による安全衛生巡視</h4>
+                        <div class="safety__text-box">
+                            <p class="safety__text">
+                                経営層による安全衛生巡視は、当社の安全管理体制の中核を担う活動の一つです。この巡視では、経営者や上級管理職が定期的に現場を訪問し、安全な作業環境の確保や安全基準の遵守を徹底することが主な目的です。具体的には、巡視の際には安全規則や法令の遵守状況を点検し、作業現場における危険な箇所や潜在的なリスクを特定します。また、機械や設備の安全装置が正しく機能しているかどうかも確認します。さらに、作業員に対して安全教育や指導を行い、安全意識の向上を図ります。
+                            </p>
+                            <div class="safety__img">
+                                <img src="img/about/serfty1.jpg" alt="現場工事">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="safety__box">
+                        <h4 class="safety__title">労働災害防止への取り組み・教育体制</h4>
+                        <div class="safety__text-box">
+                            <p class="safety__text">
+                                労働災害の防止に向けた従業員への教育・訓練も欠かせません。新入社員や新規作業員には、安全教育プログラムを実施し、作業時の安全ルールや手順、危険な状況の認識方法などを徹底的に指導しています。さらに、定期的な安全講習会や研修を通じて、従業員の安全意識を高める取り組みを行っています。労働災害が発生した場合には、速やかに原因究明を行い、再発防止策を迅速に実施します。また、従業員からの安全に関する意見や提案を積極的に受け付け、改善に向けた取り組みを推進しています。
+                            </p>
+                            <div class="safety__img">
+                                <img src="img/about/serfty2.jpg" alt="労災">
+                            </div>
+                        </div>
+                    </div>
                 </section>
-            </div>
+            </div><!--wrapper-->
 
+            <section class="contact section wrapper" id="contact">
+                <div class="section__inner">
+
+                    <!-- セクションヘッダー -->
+                    <p class="section__label">お問い合わせ</p>
+                    <h2 class="section__title">CONTACT</h2>
+
+                    <!-- コンテンツエリア -->
+                    <div class="contact__inner">
+
+                        <!-- 電話番号エリア -->
+                        <div class="contact__tel">
+
+                            <!-- 左：Tel表記 -->
+                            <div class="contact__tel-label">
+                                <span class="contact__tel-en">Tel</span>
+                                <span class="contact__tel-ja">お電話</span>
+                            </div>
+                            <!-- 右：番号と営業時間 -->
+                            <div class="contact__tel-info">
+                                <a href="tel:0000-000-0000" class="contact__tel-number">
+                                    0000-000-0000
+                                </a>
+                                <p class="contact__tel-hours">営業時間10:00-20:00</p>
+                            </div>
+                        </div><!-- /.contact__tel -->
+
+                        <a href="contact.html" class="btn contact__mail">
+                            <img src="img/top/mail.png" alt="">
+                                メールフォームはこちら
+                        </a>
+                    </div><!-- /.contact__inner -->
+                    <!-- イラスト -->
+                    <div class="contact__illust">
+                        <img src="img/top/financing_01.png" alt="">
+                    </div>
+                </div><!-- /.section__inner -->
+            </section>
         </main>
+        <footer class="footer">
+            <div class="footer__inner wrapper">
+
+                <!-- 左：ロゴ・会社情報 -->
+                <div class="footer__left">
+                    <div class="footer__logo">
+                        <img src="img/top/logo-pc.svg" alt="青牡丹工務店">
+                    </div>
+                    <div class="footer__info">
+                        <p class="footer__address">〒000-0000　大阪市大阪市北区南町5-6-7</p>
+                        <p class="footer__hours">営業時間　10:00〜20:00</p>
+                        <p class="footer__holiday">定休日　日曜日、祝日、年末年始（12月31日から1月3日まで）</p>
+                    </div>
+                </div>
+
+                <!-- 右：ナビゲーション -->
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="#">トップページ</a></li>
+                        <li class="footer__nav-item"><a href="about.html">私達について</a></li>
+                        <li class="footer__nav-item"><a href="about.html#philosophy">経営理念</a></li>
+                    </ul>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="about.html#company">会社概要</a></li>
+                        <li class="footer__nav-item"><a href="about.html#safety">安全への取り組み</a></li>
+                        <li class="footer__nav-item"><a href="service.html">事業内容</a></li>
+                        <li class="footer__nav-item"><a href="service.html#housing">住宅建築・リフォーム</a></li>
+                    </ul>
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item"><a href="service.html#corporate">法人新築・リフォーム</a></li>
+                        <li class="footer__nav-item"><a href="service.html#public">公共工事</a></li>
+                        <li class="footer__nav-item"><a href="#news">お知らせ</a></li>
+                        <li class="footer__nav-item">
+                        <a href="contact.html">
+                            <img src="img/top/mail.png" alt="">お問い合わせ
+                        </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div><!-- /.footer__inner -->
+
+            <!-- コピーライト -->
+            <p class="footer__copyright wrapper">© AOBOTAN INC.</p>
+
+        </footer>
     </body>
 </html>

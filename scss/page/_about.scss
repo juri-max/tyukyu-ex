@@ -5,6 +5,10 @@
 ========================================= */
 .about-fv {
     position: relative;
+    padding-right: 30px;
+    @media (max-width:1000px) {
+        padding-right: 0;
+    }
 
     &__inner {
         max-width: 1440px;
@@ -14,24 +18,37 @@
         margin-top: 40px;
     }
 
-    &__img {
-        width: 100%;       // 横幅いっぱいに広げる
+    &__imgs {
+        max-width: 1120px;       // 横幅いっぱいに広げる
         height: auto;     // 画像の高さ（お好みで調整）
         object-fit: cover; // 比率を保ったまま枠を埋める（はみ出し分は切り取る）
         display: block;    // 画像の下にできる謎のすき間を消す
-        
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 50px;
+            @media (max-width:1000px) {
+                padding-right: 0;
+                border-radius: 0;
+            }
+        }
     }
 
     // 右上の青い飾り
     &::after {
         position: absolute;
-        right: 19%;
+        left: 41%;
         top: -10%;
         content: "";                    // 擬似要素には必須（中身は空でOK）
         width: 700px;
         height: 600px;
         background-color: $color-primary; // 変数で青色を指定
         z-index: -1;
+
+        @media (max-width:1000px) {
+            display: none;
+        }
     }
 }
 
@@ -40,6 +57,7 @@
 ========================================= */
 .about {
     position: relative;
+    margin-bottom: 80px;
     &__inner {
         width: 70%;
     }
@@ -53,12 +71,25 @@
         position: absolute;
         top: -10%;
         left: 40%;
+
+        @media (max-width:1070px) {
+            width: 100px;
+            top: -15%;
+        }
+
+        @media (max-width:480px) {
+            width: 70px;
+        }
     }
 
     &__btn {
         display: flex;
         gap: 24px;
         margin-top: 60px;
+        @media (max-width: 525px) {
+            flex-wrap: wrap;   // ← 入りきらないボタンを次の行へ
+            justify-content: center;
+        }
     }
 
     &__btn-l {
@@ -73,6 +104,7 @@
         border: 1px solid $color-scroll;
         border-radius: 10px;
 
+
         &::after {
             content: "";
             flex-shrink: 0;
@@ -84,4 +116,172 @@
         }
     }
 
+    @include sp {
+        margin-top: 60px;
+        margin-bottom: 30px;
+
+        &__inner {
+            width: 100%;
+        }
+
+        &__img {
+            position: absolute;
+            top: -17%;
+            left: 70%;
+        }
+
+        &__text {
+            br {
+                display: none;
+            }
+        }
+        &__label {
+            margin-bottom: 35px;
+        }
+    }
+
+}
+
+.philosophy {
+    margin-bottom: 50px;
+    &__label {
+        font-size:clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
+    }
+}
+
+.company {
+    margin-bottom: 56px;
+    &__label {
+        font-size: clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
+        margin-bottom: 65px;
+    }
+    &__inner {
+        display: flex;
+        flex-direction: row-reverse; // ← 並びを左右反対に（HTMLはそのまま！）
+        @include sp {
+            flex-direction: column;    // SPでは縦積み → 画像が上・テキストが下
+            align-items: center;
+        }
+    }
+
+    &__imgbox {
+        width: 50%;
+        @include sp {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        img {
+            width: 331px;
+            height: 425px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            @media (max-width: 425px) {
+                width: 220px;
+                height: 300px;
+                object-fit: cover;
+            }
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    }
+    &__shatyo {
+        color: $color-scroll;
+    }
+    &__text {
+        width: 50%;
+        margin-right: 156px;
+
+        @media (max-width: 1040px) {
+            margin-right: 80px;
+        }
+        @include sp {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    &__table {
+        margin-top: 80px;
+        padding-right: 60px;
+        @media (max-width: 810px) {
+            padding-right: 0;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;                     // 縦方向を中央ぞろえ
+        padding: 15px 8px;
+        border-bottom: 1px solid #B1C6DC;  // 
+        @include sp {
+            flex-direction: column;
+            align-items: baseline;
+        }
+
+    }
+
+    &__term {
+        width: 230px;       // ラベル列の幅（固定）
+        flex-shrink: 0;     // ← また登場！縮ませてラベル幅を崩さない
+        font-weight: 700;
+        @include sp {
+            width: 110px;
+        }
+    }
+
+    &__desc {
+        margin: 0;          // ← ここ重要。dd の“勝手な余白”を消す
+        @media (max-width: 520px) {
+            font-size: 14px;
+        }
+    }
+}
+
+.safety {
+    &__label {
+        font-size: clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
+        margin-bottom: 80px;
+        @include sp {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__text-box {
+        display: flex;
+        gap: 44px;
+
+        @include sp {
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        font-size: clamp(1rem, 0.824rem + 0.75vw, 1.5rem);
+        margin-bottom: 30px;
+    }
+    &__text {
+        line-height: 1.8;
+        width: 65%;
+        @include sp {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+    &__img {
+        width: 35%;
+        img {
+            width: 267px;
+            height: auto;
+            object-fit: cover;
+        }
+        @include sp {
+            width: 100%;
+        }
+    }
 }

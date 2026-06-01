@@ -28,6 +28,13 @@
     }
 }
 
+.wrapper-l {
+    padding-left: 0;
+    @media (max-width:1230px) {
+        padding-inline: 40px;
+    }
+}
+
 // セクション共通の余白
 .section {
     padding: 32px 24px;
