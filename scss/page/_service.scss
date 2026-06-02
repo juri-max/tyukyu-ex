@@ -1,0 +1,53 @@
+@use "../foundation" as *; // ← 変数やmixinを使えるようにするおまじない（先頭に1回）
+
+/* =========================================
+    FV（ヘッダー画像）
+========================================= */
+.service-fv {
+    position: relative;
+    padding-right: 30px;
+    @media (max-width:1000px) {
+        padding-right: 0;
+    }
+
+    &__inner {
+        max-width: 1440px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
+
+    &__imgs {
+        max-width: 1120px;       // 横幅いっぱいに広げる
+        height: auto;     // 画像の高さ（お好みで調整）
+        object-fit: cover; // 比率を保ったまま枠を埋める（はみ出し分は切り取る）
+        display: block;    // 画像の下にできる謎のすき間を消す
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 40px;
+            @media (max-width:1000px) {
+                padding-right: 0;
+                border-radius: 0;
+            }
+        }
+    }
+
+    // 右上の青い飾り
+    &::after {
+        position: absolute;
+        left: 41%;
+        top: -10%;
+        content: "";                    // 擬似要素には必須（中身は空でOK）
+        width: 727px;
+        height: 600px;
+        background-color: $color-primary; // 変数で青色を指定
+        z-index: -1;
+
+        @media (max-width:1000px) {
+            display: none;
+        }
+    }
+}

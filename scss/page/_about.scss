@@ -15,7 +15,7 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
-        margin-top: 40px;
+        margin-top: 70px;
     }
 
     &__imgs {
@@ -41,7 +41,7 @@
         left: 41%;
         top: -10%;
         content: "";                    // 擬似要素には必須（中身は空でOK）
-        width: 700px;
+        width: 727px;
         height: 600px;
         background-color: $color-primary; // 変数で青色を指定
         z-index: -1;
@@ -57,20 +57,21 @@
 ========================================= */
 .about {
     position: relative;
-    margin-bottom: 80px;
+    margin-bottom: 73px;
     &__inner {
         width: 70%;
     }
     &__label {
         font-size: clamp(1.5rem, 1.148rem + 1.5vw, 2.5rem);
+        margin-bottom: 55px;
     }
     &__textimg {
         display: flex;
     }
     &__img {
         position: absolute;
-        top: -10%;
-        left: 40%;
+        top: 3%;
+        left: 48%;
 
         @media (max-width:1070px) {
             width: 100px;
@@ -84,8 +85,8 @@
 
     &__btn {
         display: flex;
-        gap: 24px;
-        margin-top: 60px;
+        gap: 29px;
+        margin-top: 39px;
         @media (max-width: 525px) {
             flex-wrap: wrap;   // ← 入りきらないボタンを次の行へ
             justify-content: center;
@@ -143,9 +144,17 @@
 }
 
 .philosophy {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     &__label {
         font-size:clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
+        margin-bottom: 50px;
+    }
+    &__img {
+        img {
+            max-width: 927px;
+            height: auto;
+            object-fit: cover;
+        }
     }
 }
 
@@ -153,7 +162,7 @@
     margin-bottom: 56px;
     &__label {
         font-size: clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
-        margin-bottom: 65px;
+        margin-bottom: 58px;
     }
     &__inner {
         display: flex;
@@ -165,7 +174,7 @@
     }
 
     &__imgbox {
-        width: 50%;
+        width: 51%;
         @include sp {
             width: 100%;
             display: flex;
@@ -190,10 +199,12 @@
     }
     &__shatyo {
         color: $color-scroll;
+        font-size: 32px;
     }
     &__text {
-        width: 50%;
-        margin-right: 156px;
+        width: 49%;
+        margin-right: 152px;
+        line-height: 1.8;
 
         @media (max-width: 1040px) {
             margin-right: 80px;
@@ -205,7 +216,7 @@
     }
 
     &__table {
-        margin-top: 80px;
+        margin-top: 65px;
         padding-right: 60px;
         @media (max-width: 810px) {
             padding-right: 0;
@@ -215,8 +226,9 @@
     &__row {
         display: flex;
         align-items: center;                     // 縦方向を中央ぞろえ
-        padding: 15px 8px;
+        padding: 15px 8px 20px 1px;
         border-bottom: 1px solid #B1C6DC;  // 
+        margin-bottom: 13px;
         @include sp {
             flex-direction: column;
             align-items: baseline;
@@ -225,7 +237,7 @@
     }
 
     &__term {
-        width: 230px;       // ラベル列の幅（固定）
+        width: 240px;       // ラベル列の幅（固定）
         flex-shrink: 0;     // ← また登場！縮ませてラベル幅を崩さない
         font-weight: 700;
         @include sp {
@@ -242,6 +254,7 @@
 }
 
 .safety {
+    margin-bottom: 190px;
     &__label {
         font-size: clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
         margin-bottom: 80px;
@@ -253,7 +266,7 @@
     &__text-box {
         display: flex;
         gap: 44px;
-
+        margin-bottom: 30px;
         @include sp {
             flex-direction: column;
             gap: 0;
@@ -267,7 +280,7 @@
     }
     &__text {
         line-height: 1.8;
-        width: 65%;
+        width: 58%;
         @include sp {
             width: 100%;
             margin-bottom: 30px;
