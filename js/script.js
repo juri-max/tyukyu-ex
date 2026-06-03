@@ -62,3 +62,11 @@ $(function() {
   });
 
 });
+
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  const submitBtn = contactForm.querySelector('.contact-form__submit');
+  contactForm.addEventListener('input', function() {
+    submitBtn.disabled = !contactForm.checkValidity();
+  });
+}
