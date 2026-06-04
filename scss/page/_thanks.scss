@@ -1,0 +1,210 @@
+@use "../foundation" as *; // ← 変数やmixinを使えるようにするおまじない（先頭に1回）
+
+.contact-fv {
+    position: relative;
+    padding-right: 30px;
+    @media (max-width:1000px) {
+        padding-right: 0;
+    }
+
+    &__inner {
+        max-width: 1440px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 43px;
+    }
+
+    &__imgs {
+        max-width: 1120px;       // 横幅いっぱいに広げる
+        height: auto;     // 画像の高さ（お好みで調整）
+        object-fit: cover; // 比率を保ったまま枠を埋める（はみ出し分は切り取る）
+        display: block;    // 画像の下にできる謎のすき間を消す
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 45px;
+            @media (max-width:1000px) {
+                padding-right: 0;
+                border-radius: 0;
+            }
+        }
+    }
+
+    // 右上の青い飾り
+    &::after {
+        position: absolute;
+        left: 41%;
+        top: -20%;
+        content: "";                    // 擬似要素には必須（中身は空でOK）
+        width: 727px;
+        height: 650px;
+        background-color: $color-primary; // 変数で青色を指定
+        z-index: -1;
+
+        @media (max-width:1000px) {
+            display: none;
+        }
+    }
+}
+
+/* ===== お問い合わせフォーム セクション ===== */
+.mailform {
+    margin: 70px 0 100px;
+
+    &__box {
+        width: 38%;
+        display: flex;
+        position: relative;
+        margin-bottom: 30px;
+        @media (max-width:830px) {
+            width: 100%;
+        }
+    }
+
+    &__label {
+        margin-bottom: 27px;
+        font-size: clamp(1.5rem, 1.148rem + 1.5vw, 2.5rem);
+    }
+
+    &__img {
+        position: absolute;
+        right: -68%;
+        top: -70%;
+        @media (max-width:830px) {
+        position: absolute;
+        right: 0%;
+        top: -120%;
+        }
+
+        @media (max-width:410px) {
+        position: absolute;
+        right: 0%;
+        top: -90%;
+        }
+        img {
+            width: 165px;
+            height: auto;
+            object-fit: cover;
+            @media (max-width:830px) {
+                width: 100px;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__main {
+        flex: 1; 
+    }                         // 左：残りを広く使う
+    &__side { 
+        width: 300px; flex-shrink: 0;      // 右：固定幅
+        @include sp { width: 100%; }
+    }
+    &__lead { 
+        margin-top: 24px; line-height: 1.8; 
+    }
+    &__tel-label {
+        margin-top: 30px; font-weight: 700; 
+        @media (max-width:830px) {
+            margin-top: 0;
+        }
+    }
+    &__tel { 
+        font-size: 32px; margin-top: 13px; 
+        font-family: $font-kanit;
+    }
+    &__hours { 
+        font-size: 14px; color: $color-text-light; 
+    }
+}
+
+/* ===== ステップ表示 ===== */
+.step {
+    display: flex;
+    align-items: center;
+    margin: 17px 0 40px;
+    margin-right: 150px;
+
+    @media (max-width:950px) {
+        margin-right: 40px;
+    }
+
+    &__box {
+        display: flex;
+        @media (max-width:830px) {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 209px;
+        padding: 2px 0;
+        border: 1px solid $color-primary;
+        background-color: $color-primary;        // アクティブ：青背景
+        color: #fff;                             // ＋白文字
+
+        &--active {
+            color: $color-primary;                     // 通常：白背景＋青文字
+            background-color: #fff;
+        }
+    }
+    &__num { 
+        font-size: 12px; 
+        font-weight: 700;
+    }
+    &__text { 
+        font-weight: 700; 
+    }
+    &__line { 
+        width: 52px; height: 1px; background-color: $color-primary; 
+    } // 2つをつなぐ線
+}
+
+   // 送信ボタン
+    .contact__submit {
+        position: relative;          // ← 丸の位置の基準（追加）
+        display: block;
+        width: 284px;
+        margin: 0 auto;
+        padding: 16px;
+        background-color: $color-scroll;
+        color:$color-bg;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        cursor: pointer;
+
+        &::after {                   // 右の白い丸（自分で作る）
+            content: "";
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;               // ← ここを大きくすれば丸が大きくなる
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+
+        &:disabled {                               // ★押せない状態の見た目
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+
+.thank {
+    margin-bottom: 40px;
+    &__btn {
+        display: inline-block;
+        margin: 0;
+        margin-bottom: 102px;
+    }
+}

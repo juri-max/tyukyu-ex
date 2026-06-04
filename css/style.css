@@ -2351,4 +2351,230 @@ body.is-modal-open {
     padding-left: 40px;
     padding-right: 40px;
   }
+}
+
+.contact-fv {
+  position: relative;
+  padding-right: 30px;
+}
+@media (max-width: 1000px) {
+  .contact-fv {
+    padding-right: 0;
+  }
+}
+.contact-fv__inner {
+  max-width: 1440px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 43px;
+}
+.contact-fv__imgs {
+  max-width: 1120px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.contact-fv__imgs img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 45px;
+}
+@media (max-width: 1000px) {
+  .contact-fv__imgs img {
+    padding-right: 0;
+    border-radius: 0;
+  }
+}
+.contact-fv::after {
+  position: absolute;
+  left: 41%;
+  top: -20%;
+  content: "";
+  width: 727px;
+  height: 650px;
+  background-color: #3d7ab5;
+  z-index: -1;
+}
+@media (max-width: 1000px) {
+  .contact-fv::after {
+    display: none;
+  }
+}
+
+/* ===== お問い合わせフォーム セクション ===== */
+.mailform {
+  margin: 70px 0 100px;
+}
+.mailform__box {
+  width: 38%;
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+@media (max-width: 830px) {
+  .mailform__box {
+    width: 100%;
+  }
+}
+.mailform__label {
+  margin-bottom: 27px;
+  font-size: clamp(1.5rem, 1.148rem + 1.5vw, 2.5rem);
+}
+.mailform__img {
+  position: absolute;
+  right: -68%;
+  top: -70%;
+}
+@media (max-width: 830px) {
+  .mailform__img {
+    position: absolute;
+    right: 0%;
+    top: -120%;
+  }
+}
+@media (max-width: 410px) {
+  .mailform__img {
+    position: absolute;
+    right: 0%;
+    top: -90%;
+  }
+}
+.mailform__img img {
+  width: 165px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 830px) {
+  .mailform__img img {
+    width: 100px;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.mailform__main {
+  flex: 1;
+}
+.mailform__side {
+  width: 300px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .mailform__side {
+    width: 100%;
+  }
+}
+.mailform__lead {
+  margin-top: 24px;
+  line-height: 1.8;
+}
+.mailform__tel-label {
+  margin-top: 30px;
+  font-weight: 700;
+}
+@media (max-width: 830px) {
+  .mailform__tel-label {
+    margin-top: 0;
+  }
+}
+.mailform__tel {
+  font-size: 32px;
+  margin-top: 13px;
+  font-family: "Kanit", sans-serif;
+}
+.mailform__hours {
+  font-size: 14px;
+  color: #666666;
+}
+
+/* ===== ステップ表示 ===== */
+.step {
+  display: flex;
+  align-items: center;
+  margin: 17px 0 40px;
+  margin-right: 150px;
+}
+@media (max-width: 950px) {
+  .step {
+    margin-right: 40px;
+  }
+}
+.step__box {
+  display: flex;
+}
+@media (max-width: 830px) {
+  .step__box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+}
+.step__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 209px;
+  padding: 2px 0;
+  border: 1px solid #3d7ab5;
+  background-color: #3d7ab5;
+  color: #fff;
+}
+.step__item--active {
+  color: #3d7ab5;
+  background-color: #fff;
+}
+.step__num {
+  font-size: 12px;
+  font-weight: 700;
+}
+.step__text {
+  font-weight: 700;
+}
+.step__line {
+  width: 52px;
+  height: 1px;
+  background-color: #3d7ab5;
+}
+
+.contact__submit {
+  position: relative;
+  display: block;
+  width: 284px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #4282B8;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.contact__submit::after {
+  content: "";
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.contact__submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.thank {
+  margin-bottom: 40px;
+}
+.thank__btn {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 102px;
 }/*# sourceMappingURL=style.css.map */
