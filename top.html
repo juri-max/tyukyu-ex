@@ -84,9 +84,9 @@
         <main class="main">
             <!--fv-->
             <section class="fv">
+
                 <div class="fv__inner">
                     <!-- 右上の青い四角形（CSSで色と位置を指定） -->
-                    <div class="fv__bg-square"></div>
                         <div class="fv__box">
                             <!-- イラスト画像 -->
                             <img class="fv__illust" src="img/top/top1.png" alt="">
@@ -167,8 +167,8 @@
             </section>
 
             <!-- FV以降はwrapperでmax-widthを制限 -->
-            <div class="wrapper">
-                <section class="about section" id="about">
+            <div class="wrapper wrapper-q">
+                <section class="about" id="about">
                     <div class="section__inner">
                         <!-- セクションヘッダー -->
                         <p class="section__label">私達について</p>
@@ -184,7 +184,7 @@
                                     青牡丹工務店が手がける家は、ただの建物ではありません。
                                     それは、お客様の暮らしや夢を支える、信頼と品質に満ちた温かな空間です。
                                 </p>
-                                <a href="about.html" class="btn btn--outline">
+                                <a href="about.html" class="btn btn--outline service-intro__btn">
                                     Read More 
                                 </a>
                             </div>
@@ -192,32 +192,32 @@
                     </div>
                 </section>
 
-                <section class="service section" id="service">
-                    <div class="service__bg"></div>
-                    <div class="service__inner">
-                        <div class="service__header">
-                            <div class="service__header-text">
+                <section class="service-intro" id="service">
+                    <div class="service-intro__bg"></div>
+                    <div class="service-intro__inner">
+                        <div class="service-intro__header">
+                            <div class="service-intro__header-text">
                                 <p class="section__label">事業内容</p>
                                 <h2 class="section__title">SERVICE</h2>
                             </div>
                             <!-- イラスト画像 -->
-                            <div class="service__header-illust">
+                            <div class="service-intro__header-illust">
                                 <img src="img/top/contract_02 1.png" alt="">
                             </div>
                         </div><!--service__header-->
 
                         <!-- 01 住宅建築・リフォーム（左：画像・右：テキスト） -->
-                        <div class="service__item">
-                            <div class="service__img">
+                        <div class="service-intro__item">
+                            <div class="service-intro__img">
                                 <img src="img/top/service1.jpg" alt="住宅建築・リフォーム">
                             </div>
-                            <div class="service__content">
-                                <div class="service__textbox">
-                                    <h3 class="service__title">住宅建築・リフォーム</h3>                                
-                                    <span class="service__number">01</span>
+                            <div class="service-intro__content">
+                                <div class="service-intro__textbox">
+                                    <h3 class="service-intro__title">住宅建築・リフォーム</h3>                                
+                                    <span class="service-intro__number">01</span>
                                 </div>
 
-                                <p class="service__text">
+                                <p class="service-intro__text">
                                     注文住宅では、お客様のニーズや希望に合わせて、オーダーメイドの家を提供します。私たちは、建物の設計から完成までのプロセスで、お客様と緊密に連携し、理想の暮らしを実現するための最適な解決策を提案します。
                                 </p>
                                 <a href="service.html#housing" class="btn btn--outline">
@@ -227,16 +227,16 @@
                         </div>
 
                         <!-- 02 法人新築・リフォーム（左：テキスト・右：画像） -->
-                        <div class="service__item service__item--reverse">
-                            <div class="service__img">
+                        <div class="service-intro__item service-intro__item--reverse">
+                            <div class="service-intro__img service-intro__ll">
                                 <img src="img/top/service2.jpg" alt="法人新築・リフォーム">
                             </div>
-                            <div class="service__content">
-                                <div class="service__textbox">
-                                    <h3 class="service__title">法人新築・リフォーム</h3>                                    
-                                    <span class="service__number">02</span>
+                            <div class="service-intro__content service-intro__second">
+                                <div class="service-intro__textbox">
+                                    <h3 class="service-intro__title">法人新築・リフォーム</h3>                                    
+                                    <span class="service-intro__number">02</span>
                                 </div>
-                                <p class="service__text">
+                                <p class="service-intro__text">
                                     法人新築では、商業施設やオフィスビル、工場など、さまざまなニーズに応じた建物の新築を手がけています。お客様のビジネスの要件やイメージに合わせて、効率的で機能的な建物を設計・施工します。
                                 </p>
                                 <a href="service.html#corporate" class="btn btn--outline">
@@ -246,16 +246,16 @@
                         </div>
 
                         <!-- 03 公共工事（左：画像・右：テキスト） -->
-                        <div class="service__item">
-                            <div class="service__img">
+                        <div class="service-intro__item service-intro__box3">
+                            <div class="service-intro__img">
                                 <img src="img/top/service3.jpg" alt="公共工事">
                             </div>
-                            <div class="service__content">
-                                <div class="service__textbox">
-                                    <h3 class="service__title">公共工事</h3>                                    
-                                    <span class="service__number">03</span>
+                            <div class="service-intro__content">
+                                <div class="service-intro__textbox">
+                                    <h3 class="service-intro__title">公共工事</h3>                                    
+                                    <span class="service-intro__number service-intro__number-lll">03</span>
                                 </div>
-                                <p class="service__text">
+                                <p class="service-intro__text">
                                     法人新築では、商業施設やオフィスビル、工場など、さまざまなニーズに応じた建物の新築を手がけています。お客様のビジネスの要件やイメージに合わせて、効率的で機能的な建物を設計・施工します。
                                 </p>
                                 <a href="service.html#public" class="btn btn--outline">
@@ -266,8 +266,8 @@
                     </div><!--service__inner-->
                 </section>
 
-                <section class="news section" id="news">
-                    <div class="section__inner">
+                <section class="news" id="news">
+                    <div class="news__inner">
 
                         <p class="section__label">お知らせ</p>
                         <h2 class="section__title">NEWS</h2>

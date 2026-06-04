@@ -202,9 +202,22 @@
 
 .thank {
     margin-bottom: 40px;
+        &__inner {
+            @include sp {
+                padding-inline: 20px;
+            }  
+        }
     &__btn {
         display: inline-block;
         margin: 0;
         margin-bottom: 102px;
+    } 
+    
+}
+
+.wrapper-llll {
+    padding-left: 0;
+    @include sp {
+        padding-inline: 0;
     }
 }
