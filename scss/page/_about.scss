@@ -115,6 +115,16 @@
             border-bottom: 3px solid $color-primary; // 下辺
             transform: rotate(45deg);                 // 45度回して「∨」に
         }
+
+        // ★ホバー時（マウスが乗ったとき）
+        &:hover {
+            background-color: $color-scroll; // 背景を青に
+            color: #fff;                     // 文字を白に
+
+            &::after {
+                border-color: #fff;            // 矢印を白に
+            }
+        }
     }
 
     @include sp {
@@ -152,6 +162,7 @@
     &__img {
         img {
             max-width: 927px;
+            width: 100%;
             height: auto;
             object-fit: cover;
         }
