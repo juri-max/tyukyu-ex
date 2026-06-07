@@ -324,7 +324,7 @@ body {
 .sp-nav__item a img {
   width: 16px;
 }
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   .sp-nav__item a {
     padding: 3px;
   }
