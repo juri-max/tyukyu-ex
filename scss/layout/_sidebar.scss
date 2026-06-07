@@ -333,10 +333,10 @@
       img {
         width: 16px;
       }
-
-      @include min {
-        padding: 3px;
-      }
+    @include sp {
+        padding: 3px; // SPは余白を少し狭く
+    } 
+    
     }
   }
 
