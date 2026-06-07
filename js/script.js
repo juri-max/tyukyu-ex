@@ -58,6 +58,15 @@ $(function() {
     $('body').removeClass('is-modal-open'); // スクロール再開
   });
 
+    // ★★★ ここから追加：スクロールしたら自動で閉じる ★★★
+  $(window).on('scroll wheel touchmove', function() {
+    if ($('#sp-nav').hasClass('is-open')) {   // メニューが開いているときだけ
+      $('#hamburger').removeClass('is-open');
+      $('#sp-nav').removeClass('is-open');
+      $('body').removeClass('is-modal-open');
+    }
+  });
+
   // ============================================
   // サイドバー アコーディオンメニュー
   // ============================================

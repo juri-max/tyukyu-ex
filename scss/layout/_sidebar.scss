@@ -69,6 +69,7 @@
             padding: 9px 0 17px;
             margin-bottom: 6px;  
             cursor: pointer; // クリックできることを示す
+            border-bottom: 1px solid #B1C6DC;
         
         }
 
@@ -99,9 +100,10 @@
             top: 50%;
             left: 0;
             width: 100%;         // spanの幅いっぱい
-            height: 2px;
+            height: 1px;
             background: $color-primary;
             transform: translateY(-50%);
+            font-weight: 400;
         }
 
         // 縦線（閉じている時だけ表示）
@@ -110,11 +112,12 @@
             position: absolute;
             top: 0;
             left: 50%;
-            width: 2px;
+            width: 1px;
             height: 100%;        // spanの高さいっぱい
             background: $color-primary;
             transform: translateX(-50%);
             transition: transform 0.3s; // 回転アニメーション
+            font-weight: 400;
         } 
     }
 
@@ -127,8 +130,7 @@
         padding-bottom: 27px;
         padding-left:   17px;
         margin-bottom: 16px;
-        border-bottom: 1px solid $color-border;   
-        border-top: 1px solid $color-border;   
+        border-bottom: 1px solid $color-border;    
 
         li a {
             display: block;
@@ -330,6 +332,10 @@
 
       img {
         width: 16px;
+      }
+
+      @include min {
+        padding: 3px;
       }
     }
   }

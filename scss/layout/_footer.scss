@@ -119,14 +119,15 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-
             &:hover {
                 color: $color-text-light;
             }
 
             img {
+                display: inline-block;
                 width: 14px;
                 filter: none;
+                margin-right: 8px;
             }
         } // ← aの閉じカッコ
 

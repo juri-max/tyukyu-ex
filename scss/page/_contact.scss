@@ -225,6 +225,37 @@
         color:#C2C2C2;   
     }
 
+    // チェックボックス（送信前の確認用）
+input[type="checkbox"] {
+    appearance: none;                 // 標準の見た目を消す（自分で作るため）
+    -webkit-appearance: none;
+    position: relative;               // チェックマークの位置の基準
+    width: 16px;                      // ← カンプ通り 16px に（13→16）
+    height: 16px;
+    margin-right: 8px;
+    border: 1px solid $color-scroll;  // 青枠
+    border-radius: 0;                 // ← 四角！（ラジオは 50% で丸、チェックは 0）
+    cursor: pointer;
+    vertical-align: middle;           // 文字と高さを揃える
+
+    // チェックが入ったとき：青く塗って白いレ点を出す
+    &:checked {
+        background-color: $color-scroll;
+
+        &::after {                    // 白いチェックマーク（矢印と同じ作り方！）
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 4px;
+            width: 4px;
+            height: 8px;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(45deg);  // 45度回して「レ」の形に
+        }
+    }
+}
+
     &__name { 
         display: flex; 
         gap: 37px; 
@@ -287,7 +318,7 @@
 .wrapper-lll {
     padding-left: 0;
     @media (max-width:1230px) {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

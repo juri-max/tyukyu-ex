@@ -751,10 +751,12 @@
     &__content {
         position: relative;
         background: #fff;
-        width: 90vw;
-        max-width: 860px;
+        width: 100vw;
+        max-width: 1000px;
         padding: 40px;
         overflow: visible;
+
+
     }
 
     // 中身のスクロールはbodyで管理
@@ -848,7 +850,17 @@
         }
     } 
     
+
     @include sp {
+        &__content {
+            width: 92vw;     // ← 画面の92%まで広げる（改行を減らす）
+            padding: 10px;   // 内側余白はお好みで
+        }
+
+        &__body {
+            max-height: 88vh;       // 縦にも少し余裕を（任意）
+            padding-inline: 16px;   // 左右の内側余白を詰めて文字幅を確保
+        }
         &__title {
             font-size: clamp(0.875rem, 0.279rem + 2.54vw, 1.5rem);
         }
@@ -856,7 +868,13 @@
         &__btn {
             width: 180px;
             padding-inline: 20px;
-        }        
+        }   
+        
+        &__close {
+            top: 0;
+            right: 3%;               // 外（マイナス）→ 内側の角へ
+            color: $color-primary;  // 白背景でも見えるよう濃い色に
+        }
     }
 }
 
