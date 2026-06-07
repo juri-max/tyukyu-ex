@@ -1,0 +1,33 @@
+@use "../foundation" as *; // ← いつものおまじない（変数を使うため）
+
+.loading {
+  position: fixed;      // スクロールしても画面に貼り付く
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;         // 画面全体をおおう
+  z-index: 9999;        // サイドバーなどより手前に
+  display: flex;
+  justify-content: center; // ロゴを横中央
+  align-items: center;     // ロゴを縦中央
+  background-color: #fff;  // 背景（白。お好みで $color-primary でも）
+  transition: opacity 0.6s ease; // 消えるときにふわっと
+
+  // ↓ JSでこのクラスが付くと消える
+  &.is-hidden {
+    opacity: 0;           // 透明に
+    pointer-events: none; // 透明な板が下のクリックを邪魔しないように
+  }
+
+  &__logo {
+    width: 200px;         // ロゴの大きさ（お好みで）
+    height: auto;
+    animation: loading-pulse 1.4s ease-in-out infinite; // ふんわり明滅
+  }
+}
+
+// ロゴをふんわり点滅させる演出（任意）
+@keyframes loading-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}

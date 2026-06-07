@@ -1,3 +1,23 @@
+// ===== ローディング画面（初回アクセスのときだけ表示） =====
+const loading = document.getElementById('loading');
+
+if (loading) { // ← ローディングが無いページ（about等）では何もしない
+  if (sessionStorage.getItem('visited')) {
+    // 【2回目以降】もう見たので、出さずにすぐ消す
+    loading.style.display = 'none';
+  } else {
+    // 【初回】読み込み完了後に、少し見せてから消す
+    window.addEventListener('load', function() {
+      sessionStorage.setItem('visited', 'true'); // 「もう見たよ」を記録
+      setTimeout(function() {
+        loading.classList.add('is-hidden');       // CSSのtransitionでふわっと消える
+      }, 1200);                                    // 1.2秒見せてから消し始める
+    });
+  }
+}
+
+
+
 // ============================================
 // フォトスライダー（Swiper.js）
 // ============================================
