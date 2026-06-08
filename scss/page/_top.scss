@@ -181,6 +181,7 @@
     // SP対応
     @include sp {
         background: #F8F8F8;
+        height: 500px;
 
         &__inner {
             height: 290px;
@@ -200,8 +201,8 @@
 
         &__illust1 {
             position: absolute;
-            left: 15%;
-            top: 5%;
+            left: 6%;
+            top: 2%;
             @media (max-width:500px) {
                 width: 103px;
             }
@@ -210,20 +211,20 @@
         &__illust2 {
             position: absolute;
             left: 5%;
-            top: 40%;
+            top: 28%;
             @media (max-width:500px) {
                 width: 110px;
-                left: 15%;
+                left: 5%;
             }
         }
 
         &__illust3 {
             position: absolute;
             right: 10%;
-            top: 10%;
+            top: 5%;
 
             @media (max-width:500px) {
-                right: 10%;
+                right: 7%;
                 width: 134px;
             }
         }
@@ -231,7 +232,7 @@
         &__illust4 {
             position: absolute;
             right: 40%;
-            top: 30%;
+            top: 27%;
 
             @media (max-width:500px) {
                 width: 82px;
@@ -241,19 +242,20 @@
 
         &__illust5 {
             position: absolute;
-            right: 0;
-            top: 55%;
+            right: 7%;
+            top: 35%;
 
             @media (max-width:500px) {
-                right: 10%;
-                top: 45%;
+                width: 88px;
+                right: 8%;
+                top: 33%;
             }
         }
     
         &__content {
             position: absolute;
             left: 2%;
-            bottom: 20%;
+            bottom: 33%;
             right: 0;
             text-align: left;
     
@@ -269,7 +271,8 @@
         }
 
         &__scroll-down {
-            bottom: 6%;
+            bottom: 21%;
+            left: 2%;
         }
 
     }

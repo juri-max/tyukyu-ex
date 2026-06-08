@@ -497,6 +497,7 @@ body {
   .main {
     margin-left: 0;
     width: 100%;
+    margin-top: 100px;
   }
 }
 
@@ -790,6 +791,7 @@ body {
 @media (max-width: 768px) {
   .fv {
     background: #F8F8F8;
+    height: 500px;
   }
   .fv__inner {
     height: 290px;
@@ -804,8 +806,8 @@ body {
   }
   .fv__illust1 {
     position: absolute;
-    left: 15%;
-    top: 5%;
+    left: 6%;
+    top: 2%;
   }
 }
 @media (max-width: 768px) and (max-width: 500px) {
@@ -817,25 +819,25 @@ body {
   .fv__illust2 {
     position: absolute;
     left: 5%;
-    top: 40%;
+    top: 28%;
   }
 }
 @media (max-width: 768px) and (max-width: 500px) {
   .fv__illust2 {
     width: 110px;
-    left: 15%;
+    left: 5%;
   }
 }
 @media (max-width: 768px) {
   .fv__illust3 {
     position: absolute;
     right: 10%;
-    top: 10%;
+    top: 5%;
   }
 }
 @media (max-width: 768px) and (max-width: 500px) {
   .fv__illust3 {
-    right: 10%;
+    right: 7%;
     width: 134px;
   }
 }
@@ -843,7 +845,7 @@ body {
   .fv__illust4 {
     position: absolute;
     right: 40%;
-    top: 30%;
+    top: 27%;
   }
 }
 @media (max-width: 768px) and (max-width: 500px) {
@@ -855,21 +857,22 @@ body {
 @media (max-width: 768px) {
   .fv__illust5 {
     position: absolute;
-    right: 0;
-    top: 55%;
+    right: 7%;
+    top: 35%;
   }
 }
 @media (max-width: 768px) and (max-width: 500px) {
   .fv__illust5 {
-    right: 10%;
-    top: 45%;
+    width: 88px;
+    right: 8%;
+    top: 33%;
   }
 }
 @media (max-width: 768px) {
   .fv__content {
     position: absolute;
     left: 2%;
-    bottom: 20%;
+    bottom: 33%;
     right: 0;
     text-align: left;
   }
@@ -881,7 +884,8 @@ body {
     font-size: clamp(0.75rem, 0.511rem + 1.02vw, 1rem);
   }
   .fv__scroll-down {
-    bottom: 6%;
+    bottom: 21%;
+    left: 2%;
   }
 }
 
